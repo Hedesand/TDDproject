@@ -8,9 +8,33 @@
     <artifactId>TDDproject</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <repositories>
+        <repository>
+            <id>Selenium-repository</id>
+            <url>https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java</url>
+        </repository>
+
+
+        <repository>
+            <id>WebDriver-repository</id>
+            <url>https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager</url>
+        </repository>
+    </repositories>
+
     <!-- ... -->
     <dependencies>
         <!-- Only needed to run tests in a version of IntelliJ IDEA that bundles older versions -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.1.0</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-launcher</artifactId>
@@ -30,11 +54,13 @@
 
    <dependencyManagement>
        <dependencies>
+
        <dependency>
            <groupId>org.junit.platform</groupId>
            <artifactId>junit-platform-surefire-provider</artifactId>
            <version>1.2.0</version>
        </dependency>
+
        <dependency>
            <groupId>org.junit</groupId>
            <artifactId>junit-bom</artifactId>
@@ -42,13 +68,15 @@
            <type>pom</type>
            <scope>import</scope>
        </dependency>
+
        <dependency>
            <groupId>org.junit.jupiter</groupId>
            <artifactId>junit-jupiter</artifactId>
            <version>RELEASE</version>
            <scope>test</scope>
        </dependency>
-   </dependencies>
+
+    </dependencies>
    </dependencyManagement>
 
 
