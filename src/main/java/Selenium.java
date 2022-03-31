@@ -11,36 +11,22 @@ import java.time.Duration;
 public class Selenium {
     public static void main(String[] args) throws InterruptedException{
 
-        WebDriverManager.firefoxdriver().setup();
         WebDriverManager.chromedriver().setup();
-        WebDriverManager.safaridriver().setup();
 
         WebDriver driver = new ChromeDriver();
 
-        driver.get("https://www.svt.se/");
+        driver.get("https://en.wikipedia.org/wiki/Main_Page");
 
-        System.out.println(driver.getTitle()); // => "Google"
+        System.out.println(driver.getTitle()); // => "WIKI// "
 
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
         Thread.sleep(5 * 1000);
 
-        WebElement searchBox = driver.findElement(By.name("q"));
-        WebElement searchButton = driver.findElement(By.name("btnK"));
+        WebElement searchButton = driver.findElement(By.name("search"));
+        WebElement goButtom = driver.findElement(By.name("go"));
 
-        // Skriv något i textrutan
-        searchBox.sendKeys("Selenium");
+        searchButton.sendKeys("Sunes jul");
         searchButton.click();
-
-        driver.getTitle();
-
-        String urlValue = driver.getCurrentUrl();
-
-        System.out.println(searchBox.getAttribute("value"));
-
-        searchButton.getText();
-        searchBox = driver.findElement(By.name("q"));
-        searchBox.getAttribute("value"); // => "Selenium"
-
-        driver.quit();
+        goButtom.click();
     }
 }
