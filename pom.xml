@@ -8,12 +8,25 @@
     <artifactId>TDDproject</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
     <repositories>
         <repository>
             <id>Selenium-repository</id>
             <url>https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java</url>
         </repository>
-
 
         <repository>
             <id>WebDriver-repository</id>
@@ -75,13 +88,18 @@
            <scope>test</scope>
        </dependency>
 
+           <dependency>
+               <groupId>org.junit.jupiter</groupId>
+               <artifactId>junit-jupiter-engine</artifactId>
+               <version>5.8.2</version>
+               <scope>test</scope>
+
+           </dependency>
+
     </dependencies>
    </dependencyManagement>
 
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
+
 
 </project>
